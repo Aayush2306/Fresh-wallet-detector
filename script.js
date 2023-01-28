@@ -5,7 +5,9 @@ const freeKey4= "EK-6wZSf-zBCHfyy-ESj99"
 const freekey5= "EK-af3uZ-LcuHf73-d1WJu"
 const freekey6="EK-8RsfJ-ckCnNW5-ddbmS"
 const address = "0x2e311fAeb44d4781f932eEd293ED59Fd629D1ba5"
-const apiUrl = `https://api.ethplorer.io/getTopTokenHolders/${address}?apiKey=${freeKey}&limit=60`;
+let addy = ""
+let h1 = document.getElementById("heading")
+
 
 let num = 0
 let sum =0
@@ -28,12 +30,15 @@ async function getapi(url) {
             var data = await res.json();
             totalTx = data.countTxs
             if(totalTx< 10) {
-               sum = sum+ 1
-               console.log(data.address)
+               sum = sum+ 1 
+               addy= `https://etherscan.io/address/${data.address}`
+               console.log(addy)
             }
   
            const percentage = (sum/asliMaal.length)*100
-           console.log(`Total New Wallet = ${sum} and total wallet checked ${asliMaal.length}`)
+           h1.innerHTML = `Total New Wallet = ${sum} and total wallet checked ${asliMaal.length}`
+
+
     
     }
     if(i<9) {
@@ -63,9 +68,11 @@ async function getapi(url) {
 const grab = document.getElementById("ca")
 const btn = document.getElementsByClassName("btn")
 
-console.log(grab)
 
 btn[0].addEventListener("click", ()=> {
-  const ca = grab.value
-  console.log(ca)
+  let ca = grab.value
+  const apiUrl = `https://api.ethplorer.io/getTopTokenHolders/${ca}?apiKey=${freeKey}&limit=60`;
+  console.log(apiUrl)
+  getapi(apiUrl);
+
 });

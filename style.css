@@ -2152,3 +2152,41 @@ html {
   .webflow-style-input button:hover {
     color: #BFD2FF;
   }
+
+  @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+:root {
+  --primary: #bf2a45;
+  --secondary: #f23041;
+  --dark: #131313;
+  --gray: #6d808c;
+  --white: #fff;
+}
+
+body {
+  color: var(--white);
+  font-family: "Pacifico", cursive;
+  font-size: 1.2em;
+  line-height: 1.6;
+  background: var(--dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  animation: neon 8s infinite;
+  font-size: 6rem;
+}
+
+@keyframes neon {
+  0%, 39%, 41%, 59%, 61%, 100% {
+    text-shadow: var(--white) 0 0 12px, var(--secondary) 0 0 24px, var(--secondary) 0 0 36px;
+  }
+  40%, 60% {
+    text-shadow: none;
+  }
+}
