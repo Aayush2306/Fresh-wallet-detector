@@ -31,22 +31,25 @@ async function getapi(url) {
             const res = await fetch(url)
  
             var data = await res.json();
-            console.log(data)
             totalTx = data.countTxs
             if(totalTx< 10) {
                sum = sum+ 1 
                addy= `https://etherscan.io/address/${data.address}`
-               //console.log(addy)
+               console.log(addy)
             }
              if (totalTx<6) {
               specialAlpha = specialAlpha + 1
+              addy= `https://etherscan.io/address/${data.address}`
+              console.log(addy,"Alpha")
              } 
              if(totalTx < 4) {
               gigaChad = gigaChad +1
+              addy= `https://etherscan.io/address/${data.address}`
+              console.log(addy,"Chad")
              }
   
            const percentage = (sum/asliMaal.length)*100
-           h1.innerHTML = `Total New Wallet = ${sum-1} and total wallet checked ${asliMaal.length-1} also there are ${specialAlpha-1} Special wallets and ${gigaChad-1} gigachad  wallets`
+           h1.innerHTML = `New Wallet = ${sum-1} Out of ${asliMaal.length-1} there are ${specialAlpha-1} Special wallets and ${gigaChad-1}chad  wallets`
 
 
     
