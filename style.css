@@ -2112,7 +2112,7 @@ html {
     margin: 0 auto;
     border-radius: 2px;
     padding: 1.4rem 2rem 1.6rem;
-    background: rgba(57, 63, 84, 0.8);
+    background: rgba(57, 63, 84, 0.3);
   }
   .webflow-style-input:after {
     content: "";
@@ -2134,12 +2134,13 @@ html {
   .webflow-style-input input {
     flex-grow: 1;
     color: #BFD2FF;
-    font-size: 1.8rem;
+    font-size: 3rem;
     line-height: 2.4rem;
     vertical-align: middle;
   }
   .webflow-style-input input::-webkit-input-placeholder {
-    color: #7881A1;
+    color: #BFD2FF;
+	font-size: 3rem;
   }
   
   .webflow-style-input button {
@@ -2190,4 +2191,11 @@ h1 {
   40%, 60% {
     text-shadow: none;
   }
+}
+
+body {
+	background-image: url("./img.jpg");
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
