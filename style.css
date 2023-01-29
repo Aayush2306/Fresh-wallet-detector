@@ -2180,6 +2180,7 @@ body {
 h1 {
   animation: neon 8s infinite;
   font-size: 6rem;
+  margin: 10px;
 }
 
 @keyframes neon {

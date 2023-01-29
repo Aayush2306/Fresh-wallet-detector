@@ -11,13 +11,16 @@ let h1 = document.getElementById("heading")
 
 let num = 0
 let sum =0
+let specialAlpha = 0
+let gigaChad = 0
 async function getapi(url) {
     
     const response = await fetch(url);
     var data = await response.json();
    const maal = data.holders;
+   //console.log(maal)
    const asliMaal = maal.map(obj => obj.address) 
-
+   //console.log(asliMaal)
   asliMaal.forEach((obj,i) => {
     
 
@@ -28,15 +31,22 @@ async function getapi(url) {
             const res = await fetch(url)
  
             var data = await res.json();
+            console.log(data)
             totalTx = data.countTxs
             if(totalTx< 10) {
                sum = sum+ 1 
                addy= `https://etherscan.io/address/${data.address}`
-               console.log(addy)
+               //console.log(addy)
             }
+             if (totalTx<6) {
+              specialAlpha = specialAlpha + 1
+             } 
+             if(totalTx < 4) {
+              gigaChad = gigaChad +1
+             }
   
            const percentage = (sum/asliMaal.length)*100
-           h1.innerHTML = `Total New Wallet = ${sum} and total wallet checked ${asliMaal.length}`
+           h1.innerHTML = `Total New Wallet = ${sum-1} and total wallet checked ${asliMaal.length-1} also there are ${specialAlpha-1} Special wallets and ${gigaChad-1} gigachad  wallets`
 
 
     
